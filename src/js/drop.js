@@ -371,6 +371,12 @@ function createContext(options={}) {
         return;
       }
 
+      // via https://github.com/HubSpot/drop/pull/171
+      if (!this.drop) {
+        // The instance was destroyed
+        return;
+      }
+
       if (!this.drop.parentNode) {
         document.body.appendChild(this.drop);
       }

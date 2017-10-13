@@ -1,4 +1,4 @@
-/*! tether-drop 1.4.1 */
+/*! tether-drop 1.4.3 */
 
 (function(root, factory) {
   if (typeof define === 'function' && define.amd) {
@@ -417,6 +417,12 @@ function createContext() {
 
         /* eslint no-unused-vars: 0 */
         if (this.isOpened()) {
+          return;
+        }
+
+        // via https://github.com/HubSpot/drop/pull/171
+        if (!this.drop) {
+          // The instance was destroyed
           return;
         }
 
